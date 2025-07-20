@@ -1,3 +1,5 @@
+import sys
+
 from stats import *
 
 def print_char_count(char_count):
@@ -7,7 +9,12 @@ def print_char_count(char_count):
     pass
 
 def main():
-    filepath = "books/frankenstein.txt"
+    arg_count = len(sys.argv)
+    if(arg_count != 2):
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    filepath = sys.argv[1]
     contents = get_book_text(filepath)
 
     print("============ BOOKBOT ============")
